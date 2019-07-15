@@ -1,1 +1,28 @@
-hello world
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head> 
+<body id="body">
+    <div>
+        <img id="image" src="static/4749e540-ff70-4c6a-a766-a08b3ee4578b.gif" alt="Picture">
+    </div>
+    <div>
+            <button id="nxtButton" type="button" onclick="nextPhoto()">Click Me!</button>
+    </div>
+</body>
+
+<script>
+    const fs = require('fs') 
+
+    fs.readFile('static/Input.txt', (err, data) => { 
+    if (err) throw err; 
+  
+    console.log(data.toString()); 
+    }) 
+
+    var image = document.getElementById("image");
+    image.setAttribute("src","static/something.jpg");
+
+    function nextPhoto() {
+      document.getElementById("image").setAttribute("src","static/4749e540-ff70-4c6a-a766-a08b3ee4578b.gif");
+    }
+</script>
