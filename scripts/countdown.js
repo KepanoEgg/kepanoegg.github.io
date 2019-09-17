@@ -28,6 +28,15 @@ function startTimer(display) {
     setInterval(timer, 1000);
 }
 
+    
+var image = document.getElementById("image");
+image.setAttribute("src","static/something.jpg");
+
+function nextPhoto() {
+    document.getElementById("text").innerHTML = "JKJKLOLOL"
+  document.getElementById("image").setAttribute("src","static/something.jpg");
+}
+
 window.onload = function () {
         display = document.querySelector('#time');
     startTimer(display);
