@@ -1,20 +1,7 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="scripts/countdown.js"></script>
 </head> 
-<body id="body">
-    <div>
-        <img id="image" src="static/4749e540-ff70-4c6a-a766-a08b3ee4578b.gif" alt="Picture">
-    </div>
-    <div>
-            <button id="nxtButton" type="button" onclick="nextPhoto()">Click Me!</button>
-    </div>
+<body>
+    <div>Registration closes in <span id="time"></span> minutes!</div>
 </body>
-
-<script>    
-    var image = document.getElementById("image");
-    image.setAttribute("src","static/something.jpg");
-
-    function nextPhoto() {
-      document.getElementById("image").setAttribute("src","static/4749e540-ff70-4c6a-a766-a08b3ee4578b.gif");
-    }
-</script>
