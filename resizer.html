@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+<body id="body" style="margin:0; background-color: black;">
+    <input type="text" id="picSource" onblur="addPic(this.value)">
+    <input id="butt" type="button" value="do the thing" onclick="makeBig()">
+    <div style="margin:0; padding: 0; border: 0; width: 100%; text-align: center;">
+        <img id="myPic" src="" hidden>
+    </div>    
+</body>
+<script>
+    var bodHei;
+    var bodWid;
+    (function () {
+        bodWid = $(document).width(); //1920
+        bodHei = $(document).height(); //937
+    }());
+    var addPic = function(value)
+    {        
+        var pic= document.getElementById("myPic");
+        pic.src = value;
+    }
+    var makeBig = function()
+    {
+        document.getElementById("butt").setAttribute("hidden", true);
+        var pic= document.getElementById("myPic");
+        pic.removeAttribute("hidden");
+        document.getElementById("picSource").setAttribute("hidden", true);
+
+        var wid = pic.naturalWidth; //530
+        var hei = pic.naturalHeight; //937
+         
+        var heightRatio = hei / bodHei; //1
+        var widthRatio = wid / bodWid; //.276
+
+        console.log("width " + wid)
+        console.log("height " + hei)
+        console.log("bodyWidth " + bodWid)
+        console.log("bodyHeight" + bodHei)
+        console.log("heightRatio " + heightRatio)
+        console.log("widthRatio " + widthRatio)
+
+        if(widthRatio < heightRatio)
+        {
+            pic.style.width = wid / heightRatio;
+            pic.style.height = bodHei;
+        }
+        else
+        {
+            pic.style.width = bodWid;
+            pic.style.height = hei / widthRatio;
+            pic.style.paddingTop = (bodHei - (hei/widthRatio))/2;
+        }
+    }
+
+</script>
+</html
