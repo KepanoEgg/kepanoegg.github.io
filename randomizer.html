@@ -1,0 +1,39 @@
+<head>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+  <textarea id="choices" rows="4" cols="50">Enter a comma seperated list of all your options here
+   </textarea><br>
+   <input id="numPicks" rows="1" cols="25"># of picks
+   </input><br>
+   <input type="submit" value="Submit" onClick="getPicks()">
+   <p id="demo"></p>
+   
+<script type="text/javascript">
+  var getPicks = function(){
+    var rawChoices = $("#choices").val();
+    var choices = rawChoices.split(',');
+    var howMany = $("#numPicks").val();
+    const parsed = parseInt(howMany);
+    if (isNaN(parsed)) 
+    { 
+      alert('you must enter a whole number of picks');
+    }
+    else if(choices.length < parsed)
+    {
+      alert('you requested more choices than you put in');
+    }
+    else
+    {
+      var i;
+      var picks = [];
+      for (i = 0; i < parsed; i++){
+        var rndn = Math.floor(Math.random() * choices.length);
+        picks.push(choices.splice(rndn, 1)[0]);
+      }
+      $("#demo").html(picks.join());
+    }
+  }
+</script>
+</body>
