@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+<body id="body" style="margin:0; background-color: black;">
+    <textarea id="text-area"></textarea>
+    <input id="butt" type="button" value="do the thing" onclick="makeBig()">
+    <div style="margin:0; padding: 0; border: 0; height:100%; width: 50%; float: right; text-align: center;">
+        <img id="myPic" src="" >
+    </div>
+    <div style = "float: left; width: 50%;">
+        <ul id="my-list">  
+
+        </ul>
+    </div>
+</body>
+<script>
+    var makeBig = function(){
+        var txts = $("#text-area")[0].value;
+        var links = txts.split('\n');
+        var list = document.getElementById('my-list');
+        for(var link in links)
+        {
+            var child = document.createElement('li');   
+            var button = document.createElement('button');   
+            button.innerText = links[link];
+            button.setAttribute("onclick","switchOver(\"" + links[link] + "\")");
+            child.appendChild(button);
+            list.appendChild(child);
+        }
+    }
+
+    var switchOver = function(a){
+        var myPic = document.getElementById("myPic");
+        myPic.setAttribute("src", a);
+    }
+</script>
+</html
