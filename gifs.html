@@ -1,12 +1,11 @@
 <html>
     <head>
         <title>Kepano: Quick Gif</title>
-        <script src="https://www.kepanoegg.com/giflist.js">
-        </script>
+        <script src="https://www.kepanoegg.com/giflist.js"></script>
         <style>
             .container {
                 display: grid;
-                grid-template-columns: repeat(10, 189px [col-start]);
+                grid-template-columns: repeat(10, 185px [col-start]);
                 column-gap: 3px;
             }
             .alert{
@@ -19,6 +18,13 @@
                 background-color: gray;
                 font-size: larger;
                 color: white;
+            }
+            .static {
+                position:absolute;
+                background: white;
+            }
+            .static:hover {
+              opacity:0;
             }
         </style>
     </head>
@@ -35,10 +41,11 @@
                 var gridItem = document.createElement("div");
                 var imageDiv = document.createElement("div");
                 var imageItem = document.createElement("img");
+                var imageItem = document.createElement("img");
                 var textBox = document.createElement("input");
 
                 gridItem.setAttribute("class", "item");
-                imageDiv.setAttribute("style", "height:108px;width:189px;")
+                imageDiv.setAttribute("style", "height:108px;width:185px;")
                 imageItem.setAttribute("src",item);
                 imageItem.setAttribute("alt","Animated GIF");
                 imageItem.setAttribute("style","height:100%;width:100%;");
