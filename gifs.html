@@ -37,7 +37,43 @@
     </body>
     <script>
         window.onload = function(){
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+            {
+                mobileLayout();
+            }else{
+                desktopLayout();
+            }
+        }
+
+        var desktopLayout = function(){            
             var cont = document.getElementById("mainCont");
+            jsonlist.forEach(function(item, index){
+                var gridItem = document.createElement("div");
+                var imageDiv = document.createElement("div");
+                var imageItem = document.createElement("img");
+                var imageItem = document.createElement("img");
+                var textBox = document.createElement("input");
+
+                gridItem.setAttribute("class", "item");
+                imageDiv.setAttribute("style", "height:108px;width:185px;")
+                imageItem.setAttribute("src",item);
+                imageItem.setAttribute("alt","Animated GIF");
+                imageItem.setAttribute("style","height:100%;width:100%;");
+                textBox.setAttribute("type", "text");
+                textBox.setAttribute("value",item);
+                textBox.setAttribute("onfocus","copyText(this)")
+
+                imageDiv.appendChild(imageItem);
+                gridItem.appendChild(imageDiv);
+                gridItem.appendChild(textBox);
+
+                cont.appendChild(gridItem);
+            })
+        }
+        
+        var mobileLayout = function(){            
+            var cont = document.getElementById("mainCont");
+            cont.setAttribute("grid-template-columns","repeat(3, 185px [col-start])");
             jsonlist.forEach(function(item, index){
                 var gridItem = document.createElement("div");
                 var imageDiv = document.createElement("div");
