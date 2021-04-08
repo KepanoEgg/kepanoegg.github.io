@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Kepano: Quick Gif</title>
+        <!--https://www.kepanoegg.com-->
+        <script src="./giflist2.js"></script>
+        <script src="https://unpkg.com/freezeframe/dist/freezeframe.min.js"></script>
+        <style>
+            .container {
+                display: grid;
+                grid-template-columns: repeat(10, 185px [col-start]);
+                column-gap: 3px;
+            }
+            .alert{
+                position: absolute;
+                bottom:0;
+                width: 99%;
+                height:40px;
+                vertical-align: middle;
+                text-align: center;
+                background-color: gray;
+                font-size: larger;
+                color: white;
+            }
+            .static {
+                position:absolute;
+                background: white;
+            }
+            .static:hover {
+              opacity:0;
+            }
+        </style>
+    </head>
+    <body>
+        <div><input type="text" id="mySearch" oninput="tagSearch(this.value)"/></div>
+        <div class="container" id="mainCont">
+        </div>
+        <div class="alert" hidden>
+        </div>
+    </body>
+    <script>
+        window.onload = function(){
+            desktopLayout();
+        }
+        var allGifs = [];
+        var desktopLayout = function(){            
+            var cont = document.getElementById("mainCont");
+            jsonlist.forEach(function(item, index){
+                var gridItem = document.createElement("div");
+                var imageDiv = document.createElement("div");
+                var imageItem = document.createElement("img");
+                var imageItem = document.createElement("img");
+                var textBox = document.createElement("input");
+
+                gridItem.setAttribute("class", "item");
+                imageDiv.setAttribute("style", "height:108px;width:185px;")
+                imageItem.setAttribute("src",item.url);
+                imageItem.setAttribute("alt","Animated GIF");
+                imageItem.setAttribute("style","height:100%;width:100%;");
+                textBox.setAttribute("type", "text");
+                textBox.setAttribute("value",item.url);
+                textBox.setAttribute("onfocus","copyText(this)")
+
+                imageDiv.appendChild(imageItem);
+                gridItem.appendChild(imageDiv);
+                gridItem.appendChild(textBox);
+                allGifs.push({"item":gridItem, "tags": item.tags});
+                cont.appendChild(gridItem);
+            })
+        }
+        
+        var copyText = function(text){
+            text.select();
+            text.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            var myAlert = document.getElementsByClassName("alert")[0];
+            myAlert.innerHTML = "Copied Text to ClipBoard: " + text.value;
+            myAlert.removeAttribute("hidden");
+            setTimeout(() => {  myAlert.setAttribute("hidden",true) }, 2500);
+        }       
+
+        var tagSearch = function(text){
+            allGifs.forEach(function(item, index){
+              if(item.tags.includes(text))
+              {
+                  item.item.removeAttribute("hidden");
+              }
+              else
+              {
+                  item.item.setAttribute("hidden",true);
+              }
+            })
+        }
+
+    </script>
+</html>
