@@ -3,82 +3,43 @@
 <head>
     <title>Kepano: Old Pics</title>
     <style>
-        img {
-            height:200px;
+        .imagine {
+            height: 200px;
             width: 200px;
         }
     </style>
+    <script src="./oldPicList.js"></script>
+    <script>
+        window.onload = function () {
+            var gg = document.getElementById("images");
+            oldPicList.forEach(element => {
+                var newImage = document.createElement("img");
+                newImage.setAttribute("src", "./images/" + element + ".jpg");
+                newImage.setAttribute("class", "imagine");
+                newImage.setAttribute('onclick', 'blowUp(this.getAttribute("src"))')
+                gg.appendChild(newImage);
+            });
+        }
+        var blowUp = function (srcLink) {
+            var floater = document.createElement("div");
+            floater.setAttribute("id", "mytotallyuniqueid"); 
+            floater.setAttribute("style", "float:left;height:100%;width:100%;background:rgba(0, 0, 0, 0.9);position: fixed;z-index: 2147483647;left: 0;top: 0;color:white;font-size:50px;display: flex;justify-content: center;align-items: center;"); 
+            floater.setAttribute("onclick","removeFloater()");
+            var floaterImage = document.createElement("img");
+            floaterImage.setAttribute("src",srcLink);
+            floater.appendChild(floaterImage);
+            document.getElementsByTagName("body")[0].appendChild(floater); 
+        }
+        var removeFloater = function(){
+            document.getElementById("mytotallyuniqueid").remove();
+        }
+    </script>
 </head>
 
 <body>
+    <div id="images">
 
-    <a href="./images/1a.jpg">
-        <img src="./images/1a.jpg" />
-    </a>
-
-
-    <a href="./images/1b.jpg">
-        <img src="./images/1b.jpg" />
-    </a>
-
-    <a href="./images/1c.jpg">
-        <img src="./images/1c.jpg" />
-    </a>
-
-    <a href="./images/2.jpg">
-        <img src="./images/2.jpg" />
-    </a>
-
-
-    <a href="./images/2a.jpg">
-        <img src="./images/2a.jpg" />
-    </a>
-
-
-    <a href="./images/3a.jpg">
-        <img src="./images/3a.jpg" />
-    </a>
-
-
-    <a href="./images/4a.jpg">
-        <img src="./images/4a.jpg" />
-    </a>
-
-
-    <a href="./images/5a.jpg">
-        <img src="./images/5a.jpg" />
-    </a>
-
-
-    <a href="./images/5b.jpg">
-        <img src="./images/5b.jpg" />
-    </a>
-
-
-    <a href="./images/5c.jpg">
-        <img src="./images/5c.jpg" />
-    </a>
-
-
-    <a href="./images/6a.jpg">
-        <img src="./images/6a.jpg" />
-    </a>
-
-
-    <a href="./images/7a.jpg">
-        <img src="./images/7a.jpg" />
-    </a>
-
-
-    <a href="./images/8a.jpg">
-        <img src="./images/8a.jpg" />
-    </a>
-
-
-    <a href="./images/10a.jpg">
-        <img src="./images/10a.jpg" />
-    </a>
-
+    </div>
 </body>
 
 </html
