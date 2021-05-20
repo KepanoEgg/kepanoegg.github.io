@@ -8,8 +8,8 @@
             var drank = 0;
             var startTime;
             var endTime;
-            var interval;
-            var amountPerInterval;
+            var interval = 0;
+            var amountPerInterval = 0;
             window.onload = function() {
                      clocker();
             }
@@ -23,7 +23,7 @@
                     //show no notifications
                 }               
                 interval = convertTimeToSeconds(0,document.getElementById('intmin').value);
-                amountPerInterval = document.getElementById('ozint').value
+                amountPerInterval = document.getElementById('ozint').value;
                 startTime = convertTimeToSeconds(document.getElementById('starthourDD').value, document.getElementById('startminDD').value);
                 endTime = convertTimeToSeconds(document.getElementById('endhourDD').value, document.getElementById('endminDD').value);
 
@@ -246,11 +246,11 @@
             </select>
             </div>
             <div>
-                Oz per interval: <input id='ozint' style="width:30px"/> 
-                Interval in Minutes: <input id='intmin' style="width:30px"/>
+                <div>Oz per interval: <input id='ozint' style="width:30px"/> </div>
+                <div>Interval in Minutes: <input id='intmin' style="width:30px"/></div>
             </div>
             <button type="button" onclick=start()>Start!</button>
         </div>
-        <div style="position:fixed;left:0px;bottom:0px;height:30px;width:100%;background:#999;">v1.0.1</div>
+        <div style="position:fixed;left:0px;bottom:0px;height:30px;width:100%;background:#999;">v1.0.2</div>
     </body>
 </html>
