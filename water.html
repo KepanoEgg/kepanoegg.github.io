@@ -36,7 +36,9 @@
                     return;
                 }
                 document.getElementById('hidethislater').remove();
+                document.getElementById('showthislater').removeAttribute("hidden");
                 toDrink = (Math.floor((endTime - startTime) / interval)) * amountPerInterval;
+                toDrink = parseInt(toDrink);
                 behind = Math.floor((getDayTimeInSeconds() - startTime) / interval) * amountPerInterval;
                 console.log("toDrink: " + toDrink);
                 console.log("behind: " + behind);
@@ -54,6 +56,13 @@
                     behind = parseInt(behind) + parseInt(amountPerInterval);
                 }
                 var t = setTimeout(updateWater, 1000);
+            }
+
+            function drankNow(){
+                var drankThisTime = parseInt(document.getElementById("drank").value);
+                drank += drankThisTime;
+                behind -= drankThisTime;
+                document.getElementById("drank").value = "";
             }
         </script>
     </head>
@@ -251,6 +260,10 @@
             </div>
             <button type="button" onclick=start()>Start!</button>
         </div>
-        <div style="position:fixed;left:0px;bottom:0px;height:30px;width:100%;background:#999;">v1.0.6</div>
+        <div id='showthislater' hidden=true>
+            <input type="text" id="drank">
+            <button type="button" onclick=drankNow()>Drank!</button>
+        </div>
+        <div style="position:fixed;left:0px;bottom:0px;height:30px;width:100%;background:#999;">v0.1.6</div>
     </body>
 </html>
