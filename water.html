@@ -51,7 +51,7 @@
                 if((getDayTimeInSeconds() - startTime) % interval == 0)
                 {                    
                     waterNotice(amountPerInterval, behind);
-                    behind += amountPerInterval;
+                    behind = parseInt(behind) + parseInt(amountPerInterval);
                 }
                 var t = setTimeout(update, 1000);
             }
@@ -251,6 +251,6 @@
             </div>
             <button type="button" onclick=start()>Start!</button>
         </div>
-        <div style="position:fixed;left:0px;bottom:0px;height:30px;width:100%;background:#999;">v1.0.2</div>
+        <div style="position:fixed;left:0px;bottom:0px;height:30px;width:100%;background:#999;">v1.0.3</div>
     </body>
 </html>
