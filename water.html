@@ -40,7 +40,7 @@
                 behind = Math.floor((getDayTimeInSeconds() - startTime) / interval) * amountPerInterval;
                 console.log("toDrink: " + toDrink);
                 console.log("behind: " + behind);
-                var t = update();
+                var t = updateWater();
             }
 
             function updateWater(){    
@@ -251,6 +251,6 @@
             </div>
             <button type="button" onclick=start()>Start!</button>
         </div>
-        <div style="position:fixed;left:0px;bottom:0px;height:30px;width:100%;background:#999;">v1.0.4</div>
+        <div style="position:fixed;left:0px;bottom:0px;height:30px;width:100%;background:#999;">v1.0.5</div>
     </body>
 </html>
