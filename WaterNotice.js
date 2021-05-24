@@ -12,8 +12,14 @@ function checkNotificationPermissions() {
 function waterNotice(amount, behind) {
     var realBehind = 0;
     if(behind > 0){realBehind = behind;}
-  var notify = new Notification("WATER", {
-    body: "You need to drink " + amount + "oz of water. \n You are " + realBehind + "oz behind.",
-    icon: "https://www.kepanoegg.com/images/puertoheadbob.gif",
+
+    if(window.location.href.startsWith("file"))
+    {
+      alert("You need to drink " + amount + "oz of water. \n You are " + realBehind + "oz behind.")
+      return;
+    }
+    var notify = new Notification("WATER", {
+      body: "You need to drink " + amount + "oz of water. \n You are " + realBehind + "oz behind.",
+      icon: "https://www.kepanoegg.com/images/puertoheadbob.gif",
   });
 }
