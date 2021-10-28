@@ -19,5 +19,7 @@ var jsonlist = [
     "https://media3.giphy.com/media/yNuRHLW08IJeCG6NGH/giphy.gif",
     "https://y.yarn.co/77810eec-e0dc-44a3-aa1f-d99d05ed7941_text_hi.gif",
     "https://media.tenor.com/images/6a9f9b6b9d2b5cabc7fe17f081d5c960/tenor.gif",
-    "https://kepanoegg.com/images/stanleyct.gif"
+    "https://kepanoegg.com/images/stanleyct.gif",
+    "https://im6.ezgif.com/tmp/ezgif-6-c35f8aa82ce6.gif",
+    "https://www.kepanoegg.com/images/bbem.gif"
 ];
