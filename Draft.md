@@ -15,3 +15,4 @@ In this manner, a good team will generally have a higher "Win Probability", for 
 A bad team will generally have a lower "Win Probability", for higher points, but will also likely win less often
 A draw will result in half the number of points you would have received for a win.
 
+![](images/fantasy/WinProbLine.jpg)
