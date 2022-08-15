@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script src="./draft/draft-order.js"></script>
+        <script src="./draft/team-list.js"></script>
+        <script>            
+            window.onload = function(){
+                document.getElementById("currentDrafter").innerText = draftOrder[currentDrafter];
+                var reaminingList = document.getElementById("reaminingList");
+                remainingTeams.forEach(element => {
+                    var newLi = document.createElement('li');
+                    newLi.innerText = element;
+                    reaminingList.appendChild(newLi);
+                });
+
+                var takenList = document.getElementById("takenList");
+                takenTeams.forEach(element => {
+                    var newP = document.createElement('p');
+                    newP.setAttribute("style","margin:0px;");
+                    newP.innerText = element.Team + ' - ' + element.owner;       
+                    takenList.appendChild(newP);
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <span id="currentDrafter"></span>, You're on the clock!
+        </div>
+        <div>
+            <ul id="reaminingList">
+
+            </ul>
+        </div>
+        <div id="takenList">
+        </div>
+    </body>
+</html>
