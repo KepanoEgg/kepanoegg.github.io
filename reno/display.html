@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>Kepano: Home Reno</title>
+    <style>
+        .imagine {
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+    <script src="./picList.js"></script>
+    <script>
+        window.onload = function () {
+            var gg = document.getElementById("images");
+            oldPicList.forEach(element => {
+                var newImage = document.createElement("img");
+                newImage.setAttribute("src", "./images/" + element + ".jpg");
+                newImage.setAttribute("class", "imagine");
+                newImage.setAttribute('onclick', 'blowUp(this.getAttribute("src"))')
+                gg.appendChild(newImage);
+            });
+        }
+        var blowUp = function (srcLink) {
+            var floater = document.createElement("div");
+            floater.setAttribute("id", "mytotallyuniqueid"); 
+            floater.setAttribute("style", "float:left;height:100%;width:100%;background:rgba(0, 0, 0, 0.9);position: fixed;z-index: 2147483647;left: 0;top: 0;color:white;font-size:50px;display: flex;justify-content: center;align-items: center;"); 
+            floater.setAttribute("onclick","removeFloater()");
+            var floaterImage = document.createElement("img");
+            floaterImage.setAttribute("src",srcLink);
+            floater.appendChild(floaterImage);
+            document.getElementsByTagName("body")[0].appendChild(floater); 
+        }
+        var removeFloater = function(){
+            document.getElementById("mytotallyuniqueid").remove();
+        }
+        function accordion(caller)
+        {
+            var accords = document.getElementsByClassName("crunchMeSenpai");
+            accords.forEach(o => o.setAttribute(hidden=true));
+            caller.show
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="images" class="accordion" onclick="accordion(this.id)">
+        <div class="crunchMeSenpai">
+            hi
+        </div>
+    </div>
+    <div id="images2" class="accordion" onclick="accordion(this.id)">
+        <div class="crunchMeSenpai">
+            hi
+        </div>
+    </div>
+</body>
+
+</html
